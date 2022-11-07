@@ -1,0 +1,9 @@
+galaxy_info:
+  author: Ryan Bontreger
+  description: A lab for EEs
+  company: Red Hat (RH4Gov Automation Practice)
+#  issue_tracker_url: https://github.com/RedHat4Gov/ee-labs/issue/tracker
+  license: beerware
+  min_ansible_version: 2.10
+  galaxy_tags: []
+dependencies: []

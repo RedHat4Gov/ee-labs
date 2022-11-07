@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Check IP address availability
+  - name: Create kickstart file
+  - name: Run virt-install
+  - name: Update /etc/hosts

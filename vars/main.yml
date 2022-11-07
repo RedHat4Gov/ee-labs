@@ -1,6 +1,6 @@
 #vars.yml
-ip_address: 192.168.122.11
-server_name: gitlab.remote.csb
+ip_address: 192.168.122.2
+server_name: demo.remote.csb
 #vm_memory in MB
 vm_memory: 4096
 vm_vcpus: 2

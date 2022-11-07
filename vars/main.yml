@@ -1,1 +1,16 @@
 #vars.yml
+ip_address: 192.168.122.2
+server_name: testhost.remote.csb
+#vm_memory in MB
+vm_memory: 4096
+vm_vcpus: 2
+#disk _size in GB
+disk_size: 20
+#os_ariant must be listed in virt
+os_variant: rhel8.5
+#iso_location refers to the local path to the iso
+iso_location: /var/lib/libvirt/images/rhel-8.6-x86_64-dvd.iso
+#disk_location
+disk_location: /var/lib/libvirt/images/
+#kickstart_location
+kickstart_location: ./

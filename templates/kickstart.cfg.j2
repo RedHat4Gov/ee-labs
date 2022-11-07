@@ -1,0 +1,19 @@
+lang en_US
+keyboard us
+timezone America/New_York --isUtc
+rootpw $2b$10$aKlMnMIKaRQVrqFdeih3EecwKGqryWSoPGHkvLIRm/1wCqC/zDlRK --iscrypted
+text
+cdrom
+bootloader --append="rhgb quiet crashkernel=auto"
+zerombr
+clearpart --all --initlabel
+autopart
+auth --passalgo=sha512 --useshadow
+network --device=enp1s0 --hostname={{ server_name }} --bootproto=static --ip={{ ip_address }} --netmask=255.255.255.0 --gateway=192.168.122.1 --nameserver=192.168.122.1 --activate
+firstboot --disable
+selinux --enforcing
+firewall --enabled --http --ssh
+%packages
+@^minimal-environment
+kexec-tools
+%end

@@ -2,6 +2,29 @@
 - hosts: localhost
   tasks:
   - name: Check IP address availability
+    command: "ping -c1 {{ ip_address }}"
+    register: ping_result
+    failed_when: "1 received" in ping_result.stdout
+
+  - name: Check dig is clean
+    command: "dig {{ server_name }}"
+    register: dns_result
+    failed_when: "ANSWER SECTION" in dns_result.stdout
+
   - name: Create kickstart file
+    template:
+      source: kickstart.cfg.j2
+      dest: "{{ kickstart_location }}.{{ server_name }}.ks.cfg"
+
+
   - name: Run virt-install
+    command: virt-install --name {{ server_name }} --memory {{ vm_memory }}
+             --vcpus {{ vm_vcpus }} --disk size={{ disk_size }} --os-variant {{ os_variant }} 
+             --location {{ iso_location }} --initrd-inject {{ kickstart_location }}{{ server_name }}.ks.cfg 
+             --extra-args="inst.ks=file:/{{ server_name }}.ks.cfg"
+
   - name: Update /etc/hosts
+    lineinfile:
+      path: /etc/hosts
+      search_string: "{{ ip_address }}"
+      line: "{{ ip_address }}   {{ server_name }}"

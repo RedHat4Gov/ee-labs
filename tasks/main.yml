@@ -3,7 +3,7 @@
 
   tasks:
   - name: include vars (workaround for lab example)
-    include_vars: ../vars/main.yml
+    include_vars: ../vars/{{ server_name }}.yml
 
   - name: Check IP address availability
     command: "ping -c1 {{ ip_address }}"

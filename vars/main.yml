@@ -1,6 +1,6 @@
 #vars.yml
-ip_address: 192.168.122.2
-server_name: testhost.remote.csb
+ip_address: 192.168.122.11
+server_name: gitlab.remote.csb
 #vm_memory in MB
 vm_memory: 4096
 vm_vcpus: 2
@@ -13,4 +13,4 @@ iso_location: /var/lib/libvirt/images/rhel-8.6-x86_64-dvd.iso
 #disk_location
 disk_location: /var/lib/libvirt/images/
 #kickstart_location
-kickstart_location: ./
+kickstart_location: ../
